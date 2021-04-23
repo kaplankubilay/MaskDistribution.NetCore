@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using Business.Concrete;
+using Entities.Concrete;
 
 namespace WorkAround
 {
@@ -6,7 +9,16 @@ namespace WorkAround
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Person person1 = new Person();
+            person1.FirstName = "Kubilay";
+            person1.LastName = "Kaplan";
+            person1.DateOfBirdYear = 1985;
+            person1.NationalIdentity = 123;
+
+            PttManager pttManager = new PttManager(new PersonManager());
+            pttManager.GiveMask(person1);
+
+            Console.ReadLine();
         }
     }
 }
